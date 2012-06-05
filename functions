@@ -1,0 +1,13 @@
+function chpwd() {
+	update_terminal_cwd
+}
+
+function killnamed() {
+	ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill
+}
+
+function cur() {
+  wget -q -O- "http://www.google.com/finance/converter?a=1&from=usd&to=idr"  | sed '/res/!d;s/<[^>]*>//g' 
+}
+
+for snippet ($DOT_ZSH/snippets/*) source "$snippet"

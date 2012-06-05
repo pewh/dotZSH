@@ -1,0 +1,10 @@
+load_defaults
+load_aliases
+load_correction
+load_completion $ZSHUERY_PATH/completion
+
+eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)" > /dev/null
+compdef _pacman pacman-color=pacman
+update_terminal_cwd
+
+eval "$(rbenv init -)"

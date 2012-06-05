@@ -1,0 +1,24 @@
+# PROMPT
+function collapse_pwd {
+	echo $(pwd | sed -e "s,^$HOME,Home,") #| sed -e "s,/, -> ,g")
+}
+
+if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="yellow"; fi
+
+PROMPT='%{$fg[$NCOLOR]%}$(collapse_pwd) %{$reset_color%}'
+#RPROMPT='%{$fg[$NCOLOR]%}%p $(git_prompt_info)%{$reset_color%}'
+RPROMPT='%{$fg[$NCOLOR]%}%p %*%{$reset_color%}'
+#ZSH_THEME_GIT_PROMPT_PREFIX="git:"
+#ZSH_THEME_GIT_PROMPT_SUFFIX=""
+#ZSH_THEME_GIT_PROMPT_DIRTY="*"
+#ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+
+# SPROMPT
+SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? (Yes, No, Abort, Edit) "
+
+# Red color when error occured
+#exec 2>>(while read line; do; print '\e[91m'${(q)line}'\e[0m' > /dev/tty; print -n $'\0'; done)
+
+# highlight completions
+zstyle ':completion:*' menu select
