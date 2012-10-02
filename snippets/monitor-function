@@ -1,0 +1,13 @@
+#!/bin/sh
+
+single_monitor() {
+  xrandr --output VGA1 --off
+  xrandr --output LVDS1 --auto
+}
+
+dual_monitor() {
+  xrandr --newmode "1366x768_75.00" 109.5 1368 1448 1592 1816 768 771 781 805 -hsync +vsync
+  xrandr --addmode VGA1 "1366x768_75.00"
+  xrandr --output VGA1 --mode "1366x768_75.00" --left-of LVDS1
+  xrandr --output LVDS1 --mode "1366x768"
+}

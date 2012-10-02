@@ -10,9 +10,9 @@ alias h='history'
 alias e='$EDITOR'
 alias p='sudo pacman-color'
 alias pp='p -S'
+alias py='p -Syy'
 alias pr='p -Rns'
-alias ps='packer -Ss'
-alias pd='sudo packer -S'
+alias y='yaourt'
 
 alias g='git status'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
